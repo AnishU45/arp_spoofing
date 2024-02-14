@@ -1,7 +1,4 @@
-const OS = require('os');
-const Util = require('util');
 const Exec = require('child_process').exec;
-const ExecPromise = Util.promisify(Exec);
 const F = require('./functions');
 const alert = require('alert');
 const express = require('express');
@@ -98,7 +95,6 @@ app.post('/addIP',(req,res)=>{
         console.log(result);
         console.log(cip);
         console.log(cmac);
-        //console.log(result[0].iptype);
         if(result == ""){
             con.query("insert into ip_mac values ('"+cip+"','"+cmac+"','static')",(err,result)=>{
                 if(err) throw err;
